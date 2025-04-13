@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripts y Exploits Vxspot !</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #e5e5e5;
+            text-align: center;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        header {
+            background: url('https://cdn.discordapp.com/attachments/1320187192277991494/1320234931405848607/dfc003715f704ade8838883c2d0535f3.gif?ex=6768dc18&is=67678a98&hm=b335d122fe2844dd7002a2418e59c2944b6cbfbde822164a5525ede0e6a4b150&') no-repeat center center;
+            background-size: cover;
+            padding: 80px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 15px  #a010fd;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color:  #a010fd;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            display: flex;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .container .option {
+            background: #1f1f1f;
+            padding: 30px;
+            border-radius: 10px;
+            width: 48%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container .option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .container h3 {
+            font-size: 2.2rem;
+            color: #a010fd;
+            margin-bottom: 20px;
+        }
+
+        .container a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            background-color: #a010fd;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container a:hover {
+            background-color: #9b00ff;
+        }
+
+        /* Loader Estilos */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .loader {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid #a010fd;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite;
+            box-shadow: 0 0 15px rgba(160, 16, 253, 0.5);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+       
+        body.loading-active {
+            overflow: hidden; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <h1>Bienvenido a nuestra seccion de Scripts y Exploits</h1>
+        <p>Selecciona una opción para explorar</p>
+    </header>
+
+    <div class="container">
+        <div class="option">
+            <h3>Scripts</h3>
+            <a href="scripts1.html" class="load-link">Scripts mas usados</a>
+        </div>
+
+        <div class="option">
+            <h3>Exploits</h3>
+            <a href="exploitsPC.html" class="load-link">Exploits PC</a>
+            <a href="exploitsCEL.html" class="load-link">Exploits Telefono</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; © 2024 Vxspot. Todos los derechos reservados..</p>
+    </footer>
+
+    <script>
+       
+        const links = document.querySelectorAll('.load-link');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = link.href; 
+                
+                const loadingScreen = document.getElementById('loading');
+                document.body.classList.add('loading-active'); 
+
+                loadingScreen.style.display = 'flex';
+                setTimeout(() => {
+                    loadingScreen.style.opacity = 1; 
+                }, 50); 
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 2000); 
+            });
+        });
+    </script>
+
+</body>
+</html>
